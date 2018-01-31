@@ -2,7 +2,7 @@
     <string name="app_name">Hire</string>
     <string name="omnify_title">Omnify</string>
 
-    <string name="random_array_title">Random Number Array</string>
+    <string name="random_array_title">Random Numbers</string>
     <string name="service_name">Sorting Service</string>
     <string name="notification_title">Hire</string>
     <string name="notification_message">Sorting arrays</string>
