@@ -8,6 +8,6 @@
     <dimen name="unsorted_cardview_marginTop">90dp</dimen>
 
     <dimen name="random_number_title_textSize">20sp</dimen>
-    <dimen name="random_number_body_textSize">18sp</dimen>
+    <dimen name="random_number_body_textSize">17sp</dimen>
     <dimen name="regen_btn_marginTop">25dp</dimen>
 </resources>

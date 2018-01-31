@@ -13,4 +13,7 @@
 
     <string name="regen_btn_text">Regenerate</string>
     <string name="sort_btn_text">Sort</string>
+    <string name="regenerateArray">RegenerateArray</string>
+    <string name="sortArray">SortArray</string>
+    <string name="clickSortButton">Please click the sort button</string>
 </resources>

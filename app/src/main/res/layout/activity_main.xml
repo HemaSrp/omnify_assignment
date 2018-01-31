@@ -1,26 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_logo"
+                android:layout_width="80dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/omnify_logo" />
+        </RelativeLayout>
+    </Toolbar>
+
+    <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.omnify.hire.MainActivity"
+        android:layout_below="@+id/toolBar"
     android:orientation="vertical">
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:id="@+id/fragment_unsorted"
         android:name="com.omnify.hire.UnsortedFragment"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/framelayout_margin"
-        android:layout_marginRight="@dimen/framelayout_margin"/>
+        android:layout_marginRight="@dimen/framelayout_margin"
+        android:layout_weight="1" />
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:id="@+id/fragment_sorted"
         android:name="com.omnify.hire.SortedFragment"
-        android:layout_weight="1"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_unsorted"
+        android:layout_weight="1" />
 
-</LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

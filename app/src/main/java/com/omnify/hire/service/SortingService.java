@@ -1,15 +1,15 @@
-package com.omnify.hire;
+package com.omnify.hire.service;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
 
+import com.omnify.hire.app.MyApplication;
+
 public class SortingService extends IntentService {
 
-    public static final String ACTION = "com.omnify.hire.Broadcast";
-    public static final String MERGESORT = "MergeSortArray";
-    public static final String QUICKSORT = "QuickSortArray";
+
 
     public SortingService() {
         super("");
@@ -23,20 +23,20 @@ public class SortingService extends IntentService {
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
         //sort arrays
-        int quicksortarray[] = MainActivity.randomNum;
-        quicksort(quicksortarray, 0, quicksortarray.length-1);
+        int quickSortArray[] = MyApplication.randomNum;
+        quickSort(quickSortArray, 0, quickSortArray.length - 1);
 
-        int mergesortarray[] = MainActivity.randomNum;
-        mergesort(mergesortarray, 0, mergesortarray.length);
+        int mergeSortArray[] = MyApplication.randomNum;
+        mergeSort(mergeSortArray, 0, mergeSortArray.length);
 
         //Send a Broadcast Intent with the two sorted arrays
-        Intent broadcastintent = new Intent(ACTION);
-        broadcastintent.putExtra(QUICKSORT, quicksortarray);
-        broadcastintent.putExtra(MERGESORT, mergesortarray);
+        Intent broadcastintent = new Intent(MyApplication.ACTION);
+        broadcastintent.putExtra(MyApplication.QUICKSORT, quickSortArray);
+        broadcastintent.putExtra(MyApplication.MERGESORT, mergeSortArray);
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastintent);
     }
 
-    private void quicksort(int[] array, int low, int high){
+    private void quickSort(int[] array, int low, int high) {
         if (array == null || array.length == 0 || low >= high)
             return;
 
@@ -69,13 +69,13 @@ public class SortingService extends IntentService {
         //The array has been divided into two parts
         //Recursively sort each of them
         if (low < j)
-            quicksort(array, low, j);
+            quickSort(array, low, j);
 
         if (high > i)
-            quicksort(array, i, high);
+            quickSort(array, i, high);
     }
 
-    private void mergesort(int[] array, int low, int high){
+    private void mergeSort(int[] array, int low, int high) {
         int size = high-low;
         if (size <= 1)
             return;
@@ -83,8 +83,8 @@ public class SortingService extends IntentService {
         int mid = low + size/2;
 
         // Recursively sort each section
-        mergesort(array, low, mid);
-        mergesort(array, mid, high);
+        mergeSort(array, low, mid);
+        mergeSort(array, mid, high);
 
         //Merge two sorted arrays
         int[] temp = new int[size];
