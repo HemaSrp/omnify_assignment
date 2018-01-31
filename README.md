@@ -1,0 +1,2 @@
+# omnify_assignment
+Create a mobile app with package name. com.omnify.hire  1) Create a fragment. This fragment should show random 20 2-digit numbers array available in the array not in sorted order and button to regenerate random numbers &amp; another button to sort.  2) Sort button click should take to new fragment which shows sorted array with Table showing two columns.  3) 1st column should show sorted array by using quick sort and 2nd column should show sorted array by using merge sort.  4) Create a service which implements quick sort and merge sort.
