@@ -66,7 +66,7 @@
         android:textColor="#FFFFFF" />
 
     <Button
-        android:id="@+id/sort_btn"
+        android:id="@+id/btn_sort_array"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btn_regenerator_array"
