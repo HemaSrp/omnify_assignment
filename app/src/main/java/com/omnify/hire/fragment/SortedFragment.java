@@ -20,11 +20,29 @@ import de.codecrafters.tableview.TableView;
 import de.codecrafters.tableview.toolkit.SimpleTableDataAdapter;
 import de.codecrafters.tableview.toolkit.SimpleTableHeaderAdapter;
 
+/**
+ * This class is used to display the sorted array in fragment
+ */
 public class SortedFragment extends Fragment {
 
-    TableView<String[]> sortedTableView;
+    /**
+     * Table view to display the sorted array
+     */
+    private TableView<String[]> sortedTableView;
+
+    /**
+     * Cardview
+     */
     private CardView cardViewSort;
-    private TextView sortText;
+
+    /**
+     * To display the sort the text message
+     */
+    private TextView sortTheTextMessage;
+
+    /**
+     * Recieve an action from the service after it completes the sorting
+     */
     private BroadcastReceiver getSortedArrays = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -32,10 +50,10 @@ public class SortedFragment extends Fragment {
             String[][] data = new String[20][20];
             sortedTableView.setVisibility(View.VISIBLE);
             cardViewSort.setVisibility(View.VISIBLE);
-            sortText.setVisibility(View.GONE);
+            sortTheTextMessage.setVisibility(View.GONE);
             //Get sorted arrays from service
             int quickSortArray[] = intent.getIntArrayExtra(MyApplication.QUICKSORT);
-            int mergeSortArray[] = intent.getIntArrayExtra(MyApplication.MERGESORT);
+            int mergeSortArray[] = intent.getIntArrayExtra(MyApplication.MERGE_SORT);
 
             for (int i = 0; i < 20; i++) {
                 //fill first row of table with quicksort values
@@ -50,9 +68,12 @@ public class SortedFragment extends Fragment {
         }
     };
 
-    public SortedFragment() {
-    }
 
+    /**
+     * Instance of the fragment
+     *
+     * @return fragment
+     */
     public static Fragment newInstance() {
         SortedFragment sortedFragment = new SortedFragment();
         return sortedFragment;
@@ -83,7 +104,7 @@ public class SortedFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_sorted, container, false);
         sortedTableView = v.findViewById(R.id.sorted_tableview);
         cardViewSort = v.findViewById(R.id.cardviewSort);
-        sortText = v.findViewById(R.id.sortText);
+        sortTheTextMessage = v.findViewById(R.id.sortText);
         return v;
     }
 }

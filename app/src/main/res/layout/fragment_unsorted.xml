@@ -50,13 +50,13 @@
     </android.support.v7.widget.CardView>
 
     <Button
-        android:id="@+id/regen_btn"
+        android:id="@+id/btn_regenerator_array"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/unsorted_cardview"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:layout_toStartOf="@+id/sort_btn"
+        android:layout_toStartOf="@+id/btn_sort_array"
         android:background="@color/green"
         android:clickable="true"
         android:foreground="?attr/selectableItemBackgroundBorderless"
@@ -68,8 +68,8 @@
         android:id="@+id/sort_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/regen_btn"
-        android:layout_alignBottom="@+id/regen_btn"
+        android:layout_alignBaseline="@+id/btn_regenerator_array"
+        android:layout_alignBottom="@+id/btn_regenerator_array"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="10dp"
         android:background="@color/green"

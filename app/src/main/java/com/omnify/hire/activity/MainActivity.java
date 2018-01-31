@@ -10,8 +10,10 @@ import com.omnify.hire.fragment.SortedFragment;
 import com.omnify.hire.fragment.UnsortedFragment;
 import com.omnify.hire.service.SortingService;
 
-
-public class MainActivity extends AppCompatActivity implements UnsortedFragment.regenerateArrayButtonClick {
+/**
+ * This class is used to load the unsorted fragment and sorted fragment.
+ */
+public class MainActivity extends AppCompatActivity implements UnsortedFragment.RegenerateArrayButtonClick {
 
 
     @Override
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements UnsortedFragment.
 
 
     @Override
-    public void sendText(String text) {
+    public void onClickButton(String text) {
         if (text.equals(MyApplication.REGENERATE_ARRAY)) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_unsorted, UnsortedFragment.newInstance())
@@ -38,7 +40,5 @@ public class MainActivity extends AppCompatActivity implements UnsortedFragment.
             Intent i= new Intent(getApplicationContext(), SortingService.class);
             startService(i);
         }
-
-
     }
 }

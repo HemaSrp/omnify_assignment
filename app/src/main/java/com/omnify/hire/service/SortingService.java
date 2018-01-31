@@ -7,8 +7,10 @@ import android.support.v4.content.LocalBroadcastManager;
 
 import com.omnify.hire.app.MyApplication;
 
+/**
+ * This service class runs in background to perform quick sort and merge sort.
+ */
 public class SortingService extends IntentService {
-
 
 
     public SortingService() {
@@ -32,10 +34,17 @@ public class SortingService extends IntentService {
         //Send a Broadcast Intent with the two sorted arrays
         Intent broadcastintent = new Intent(MyApplication.ACTION);
         broadcastintent.putExtra(MyApplication.QUICKSORT, quickSortArray);
-        broadcastintent.putExtra(MyApplication.MERGESORT, mergeSortArray);
+        broadcastintent.putExtra(MyApplication.MERGE_SORT, mergeSortArray);
         LocalBroadcastManager.getInstance(this).sendBroadcast(broadcastintent);
     }
 
+    /**
+     * This method is used to perform the quick sort
+     *
+     * @param array array
+     * @param low   low value
+     * @param high  high value
+     */
     private void quickSort(int[] array, int low, int high) {
         if (array == null || array.length == 0 || low >= high)
             return;
@@ -75,6 +84,13 @@ public class SortingService extends IntentService {
             quickSort(array, i, high);
     }
 
+    /**
+     * This method is used to perform the merge sort
+     *
+     * @param array array
+     * @param low  low value
+     * @param high  high value
+     */
     private void mergeSort(int[] array, int low, int high) {
         int size = high-low;
         if (size <= 1)
@@ -91,8 +107,7 @@ public class SortingService extends IntentService {
         int i=low;
         int j = mid;
 
-        for (int k=0; k<size; k++)
-        {
+        for (int k = 0; k<size; k++) {
             if (i == mid)
                 temp[k] = array[j++];
 

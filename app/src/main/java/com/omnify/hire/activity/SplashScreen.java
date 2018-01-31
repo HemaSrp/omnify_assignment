@@ -8,10 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.omnify.hire.R;
 
-/**
- * Created by hema on 31/1/18.
- */
 
+/**
+ * This class is used to display the splash screen of the app.
+ */
 public class SplashScreen extends AppCompatActivity {
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;
@@ -34,7 +34,6 @@ public class SplashScreen extends AppCompatActivity {
                 // Start your app main activity
                 Intent i = new Intent(SplashScreen.this, MainActivity.class);
                 startActivity(i);
-
                 // close this activity
                 finish();
             }
